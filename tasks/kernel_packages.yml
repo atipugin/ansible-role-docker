@@ -1,0 +1,9 @@
+---
+- command: uname -r
+  register: kernel_release
+
+- name: install kernel packages
+  apt: name={{ item }} state=present
+  with_items:
+    - linux-image-extra-{{ kernel_release.stdout }}
+    - linux-image-extra-virtual
