@@ -1,5 +1,6 @@
 ---
-- command: uname -r
+- name: register kernel version
+  command: uname -r
   register: kernel_release
 
 - name: install kernel packages
